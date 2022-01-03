@@ -6,3 +6,6 @@
 # 赞助我
 # 更新日志
 # 感谢列表
+感谢他们的贡献，让脚本得到进一步完善
+[Misaka-blog](https://github.com/Misaka-blog/MisakaLinuxToolbox)
+[wxfyes](https://github.com/wxfyes/bt)
