@@ -130,6 +130,8 @@ function bt(){
     echo "                            "
     echo "1. 开心版"
     echo "2. 国际版"
+    echo "3. 国内版"
+    echo "0. 返回主页"
     echo "                            "
     read -p "请输入选项:" btNumberInput
     case "$btNumberInput" in     
@@ -143,6 +145,14 @@ function bt(){
                 wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh && sudo bash install.sh forum
             fi
         ;;
+        3)
+            if [ $release = "Centos" ]; then
+                yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_6.0.sh && sh install.sh
+            elif [ $release = "Debian" ]; then
+                wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && bash install.sh
+            else
+                wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && sudo bash install.sh
+            fi
         0 ) menu;;
     esac
 }
@@ -179,9 +189,7 @@ function btHappy(){
     esac
 }
 
-function xui(){
-    bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
-}
+
 
 function aria2(){
     if ! type ca-certificates >/dev/null 2>&1; then 
@@ -210,7 +218,9 @@ function boy233(){
 function hijk(){
     bash <(curl -sL https://raw.githubusercontent.com/Misaka-blog/hijk-backup/master/xray.sh)
 }
-
+function xui(){
+    bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+}
 function tgMTProxy(){
     mkdir /home/mtproxy && cd /home/mtproxy
     curl -s -o mtproxy.sh https://raw.githubusercontent.com/sunpma/mtp/master/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
@@ -223,16 +233,18 @@ function vpsBench(){
     echo "                            "
     green "请选择你接下来使用的脚本"
     echo "                            "
-    echo "1. 使用bench.sh"
-    echo "2. 使用superbench"
-    echo "3. 使用lemonbench"
+    echo "1. 三网纯测速"
+    echo "2. 回程路由"
+    echo "3. VPS 快速全方位测速（包含性能、回程、速度 - 英文显示）"
+    echo "4. VPS 回程线路测试(先执行2，或者手动安装besttrace）＂
     echo "                            "
     echo "0. 返回主菜单"
     read -p "请输入选项:" page3NumberInput
     case "$page3NumberInput" in
-        1 ) wget -qO- bench.sh | bash ;;
-        2 ) wget -qO- --no-check-certificate https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | bash ;;
+        1 ) wget -qO- --no-check-certificate https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | bash ;;
+        2 ) wget -O huichong.sh https://raw.githubusercontent.com/wxfyes/bt/master/huichong.sh && bash huichong.sh ;;
         3 ) curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s fast ;;
+        ４）wget -N --no-check-certificate https://raw.githubusercontent.com/wangn9900/testvps/master/return.sh && bash return.sh
         0 ) menu
     esac
 }
@@ -295,10 +307,10 @@ function menu(){
     green "下面是脚本分类，请选择对应的分类后进入到相对应的菜单中"
     echo "                            "
     echo "1. 系统相关"
-    echo "2. 面板相关"
-    echo "3. 节点相关"
-    echo "4. VPS测试"
-    echo "5. VPS探针"
+    echo "2. 宝塔"
+    echo "3. 科学上网"
+    echo "4. VPS性能测试"
+    echo "5. 其他"
     echo "                            "
     echo "9. 更新脚本"
     echo "0. 退出脚本"
@@ -344,15 +356,13 @@ function page2(){
     green "请选择你准备安装的面板"
     echo "                            "
     echo "1. 安装宝塔面板"
-    echo "2. 安装x-ui面板"
-    echo "3. 安装aria2面板"
+    echo "2. 安装aria2面板"
     echo "                            "
     echo "0. 返回主菜单"
     read -p "请输入选项:" page2NumberInput
     case "$page2NumberInput" in
         1 ) bt ;;
-        2 ) x-ui ;;
-        3 ) aria2 ;;
+        2 ) aria2 ;;
         0 ) menu
     esac
 }
@@ -360,11 +370,12 @@ function page2(){
 function page3(){
     echo "                            "
     green "请选择你接下来使用的脚本"
-    echo "                            "
-    echo "1. 使用Mack-a的脚本"
+    echo "                           "
+    echo "1. 使用Mack-a 八合一的脚本"
     echo "2. 使用233boy的脚本"
     echo "3. 使用hijk的脚本"
-    echo "4. 搭建Telegram MTProxy代理"
+    echo "4. x-ui"
+    echo "5. 搭建Telegram MTProxy代理"
     echo "                            "
     echo "0. 返回主菜单"
     read -p "请输入选项:" page3NumberInput
@@ -372,7 +383,8 @@ function page3(){
         1 ) macka ;;
         2 ) boy233 ;;
         3 ) hijk ;;
-        4 ) tgMTProxy ;;
+        4 ) xui ;;
+        5 ) tgMTProxy ;;
         0 ) menu
     esac
 }
