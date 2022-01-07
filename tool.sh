@@ -221,6 +221,9 @@ function hijk(){
 function xui(){
     bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 }
+function xui(){
+    wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh && chmod +x shadowsocks-all.sh && ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
+｝    
 function tgMTProxy(){
     mkdir /home/mtproxy && cd /home/mtproxy
     curl -s -o mtproxy.sh https://raw.githubusercontent.com/sunpma/mtp/master/mtproxy.sh && chmod +x mtproxy.sh && bash mtproxy.sh
@@ -289,9 +292,9 @@ function menu(){
     clear
     red "============================"
     red "                            "
-    red "    Misaka Linux Toolbox    "
+    red "    小叶 Linux Toolbox    "
     echo "                            "
-    red "  https://blog.misaka.rest  "
+    red "  博客：  "
     echo "                            "
     red "============================"
     echo "                            "
@@ -374,8 +377,9 @@ function page3(){
     echo "1. 使用Mack-a 八合一的脚本"
     echo "2. 使用233boy的脚本"
     echo "3. 使用hijk的脚本"
-    echo "4. x-ui"
-    echo "5. 搭建Telegram MTProxy代理"
+    echo "4.　x-ui"
+    echo "5.　秋水ＳＳ"
+    echo "６. 搭建Telegram MTProxy代理"
     echo "                            "
     echo "0. 返回主菜单"
     read -p "请输入选项:" page3NumberInput
@@ -384,7 +388,8 @@ function page3(){
         2 ) boy233 ;;
         3 ) hijk ;;
         4 ) xui ;;
-        5 ) tgMTProxy ;;
+        ５) ｓｓ ;;
+        ６）tgMTProxy ;;
         0 ) menu
     esac
 }
