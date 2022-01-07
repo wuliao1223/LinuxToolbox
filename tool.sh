@@ -221,7 +221,7 @@ function hijk(){
 function xui(){
     bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 }
-function xui(){
+function ｓｓ(){
     wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh && chmod +x shadowsocks-all.sh && ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 ｝    
 function tgMTProxy(){
@@ -294,7 +294,7 @@ function menu(){
     red "                            "
     red "    小叶 Linux Toolbox    "
     echo "                            "
-    red "  博客：  "
+    red "  博客："
     echo "                            "
     red "============================"
     echo "                            "
